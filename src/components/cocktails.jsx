@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cocktails() {
   return (
-    <div>Cocktails</div>
+    <div className='w-full h-500'>Cocktails</div>
   )
 }
 

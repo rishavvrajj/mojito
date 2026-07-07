@@ -15,12 +15,13 @@ function Navbar() {
         });
 
         navTween.fromTo('nav', { 
-            backgroundColor: 'transparent' 
+            backgroundColor: 'transparent', 
             }, {
             backgroundColor: "rgba(0, 0, 0, 0.15)", // lighter tint
             backdropFilter: "blur(2px)", 
+            opacity: 100,
             duration: 1,
-            ease: 'power1.inOut ',
+            ease: 'expo.inOut ',
         })
 
         gsap.from('a,li', {
