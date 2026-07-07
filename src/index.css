@@ -63,14 +63,14 @@ body {
     main {
         @apply w-full overflow-x-hidden;
     }
-
+    
     nav {
         @apply fixed z-50 w-full;
-
+        
         div {
-            @apply flex justify-between items-center lg:px-20 sm:px-5 gap-5 p-5;
+            @apply flex text-zinc-300 justify-between items-center lg:px-20 sm:px-5 gap-5 p-5;
         }
-
+        
         img {
             @apply w-7 h-7 md:w-8 md:h-8
         }
@@ -78,7 +78,7 @@ body {
         p {
             @apply font-modern-negra text-3xl;
         }
-
+        
         a {
             @apply flex gap-5 cursor-pointer text-nowrap md:text-base text-sm;
         }
@@ -86,9 +86,9 @@ body {
         ul {
             @apply  flex items-center justify-center hidden md:flex gap-2 sm:gap-2 md:gap-5 lg:gap-12;
         }
-
+        
         li {
-            @apply text-sm
+            @apply text-sm text-zinc-500 transition-colors duration-400 hover:text-zinc-100
         }
     }
 
@@ -102,15 +102,15 @@ body {
         h1 {
             @apply md:mt-32 mt-40 text-8xl md:text-[20vw] leading-none text-center font-modern-negra;
         }
-
+        
         .left-leaf {
             @apply absolute left-0 md:bottom-40 lg:top-52 bottom-50 md:w-fit w-1/3;
         }
-
+        
         .right-leaf {
             @apply absolute right-0 md:bottom-0 xl:top-0 2xl:top-12 top-1/2 md:w-fit w-24;
         }
-
+        
         .body {
             @apply container absolute left-1/2 -translate-x-1/2 bottom-100 md:bottom-20 lg:bottom-20 top-100 flex justify-between items-end px-5;
 
@@ -124,12 +124,12 @@ body {
                 p:last-of-type {
                     @apply text-center;
                 }
-
+                
                 .view-cocktails {
                     @apply text-lg hidden md:flex lg:flex lg:max-w-2xs md:max-w-xs w-full;
-
+                    
                     p {
-                        @apply text-center;
+                        @apply text-start text-zinc-300;
                     }
                 }
             }

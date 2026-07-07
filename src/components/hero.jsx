@@ -18,24 +18,38 @@ function Hero() {
 
         gsap.from(heroSplit.chars, {
             yPercent: 100,
-            duration: 1.8,
-            ease: 'expo.out',
+            duration: 3,
+            opacity: 0,
+            ease: 'expo.inOut',
             stagger: 0.06
         })
+
+        gsap.from(heroSplit.words, {
+            opacity: 0,
+            duration: 3,
+            ease: "expo.inOut",
+        });
 
         gsap.from(paragraphSplit.chars, {
             opacity: 0,
             yPercent: 100,
-            duration: 0.8,
-            ease: 'expo.Out',
+            duration: 2.8,
+            ease: 'expo.inOut',
             stagger: 0.006,
             delay: 1,
+        })
+
+        gsap.from('video', {
+            yPercent: 20,
+            opacity: 0,
+            duration: 2,
+            ease: 'expo.inOut'
         })
 
         gsap.from('.right-leaf, .left-leaf', {
             opacity:0,
             yPercent: 10,
-            ease: 'power1.inOut',
+            ease: 'expo.inOut',
             duration:2,
         })
 
