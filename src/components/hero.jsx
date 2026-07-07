@@ -32,6 +32,13 @@ function Hero() {
             delay: 1,
         })
 
+        gsap.from('.right-leaf, .left-leaf', {
+            opacity:0,
+            yPercent: 10,
+            ease: 'power1.inOut',
+            duration:2,
+        })
+
         const leafTween = gsap.timeline({
             scrollTrigger: {
                 trigger: '#hero',
@@ -45,14 +52,15 @@ function Hero() {
         leafTween.to('.right-leaf', { y: 200 }, 0)
         leafTween.to('.left-leaf', { y: -200 }, 0)
 
-        const startValue = isMobile ? 'top 50%' : 'center 50%';
-        const endValue = isMobile ? '120% top' : 'bottom top';
+        const startValue = isMobile ? 'top 50%' : '80% top';
+        const endValue = isMobile ? '120% top' : 'top top';
 
         const videoTween = gsap.timeline({
             scrollTrigger: {
-                trigger: '.videoWrapper',
-                start: startValue,
-                end: endValue,
+                trigger: '.video',
+                start: 'top top',
+                end: 'top top',
+                // markers: true,
                 scrub: true,
                 // pin: true,
                 // onEnter: () => videoRef.current.play(),
@@ -78,7 +86,7 @@ function Hero() {
 
             <div className="body">
                 <div className="content">
-                    <div className='space-y-5 hidden md:block'>
+                    <div className='subtitle'>
                         <p>Cool. Crisp. Classic.</p>
                         <p>Sip the Spirit <br /> of Summer </p>
                     </div>
@@ -90,9 +98,9 @@ function Hero() {
                 </div>
             </div>
         </section>
-            <div className='videoWrapper absolute inset-0 z-0'>
-                <video ref={videoRef} src="/videos/output.mp4" muted playsInline preload='auto'></video>
-            </div>
+        <div className='video'>
+            <video ref={videoRef} src="/videos/output.mp4" muted playsInline preload='auto'></video>
+        </div>
         </>
     )
 }
