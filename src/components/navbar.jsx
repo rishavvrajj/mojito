@@ -36,7 +36,7 @@ function Navbar() {
     <nav>
         <div>
             <a href="/home">
-                <img src="public\images\logo.png" alt="logo" />
+                <img src="/images/logo.png" alt="logo" />
                 <p>velvet pour</p>
             </a>
 
