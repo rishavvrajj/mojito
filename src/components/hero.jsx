@@ -74,8 +74,8 @@ function Hero() {
                     trigger: 'body',         
                     start: 'top top',        
                     end: 'bottom bottom',    
-                    scrub: true,          
-                    markers: 1.5,          
+                    scrub: 1.5,          
+                    // markers: true,          
                     invalidateOnRefresh: true
                 }
             });
