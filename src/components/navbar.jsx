@@ -14,11 +14,12 @@ function Navbar() {
             }
         });
 
-        navTween.fromTo('nav', { 
-            backgroundColor: 'transparent', 
-            }, {
-            backgroundColor: "rgba(0, 0, 0, 0.15)", // lighter tint
-            backdropFilter: "blur(2px)", 
+        navTween.fromTo('nav', {
+            backgroundColor: 'transparent',
+        }, {
+            // backgroundColor: "rgba(0, 0, 0, 0.15)", // lighter tint
+            // background: "bg-linear-to-b from-zinc-500 via-black/50 to-transparent mask[linear-gradient(to_bottom,black,transparent)]",
+            // backdropFilter: "blur(2px)", 
             opacity: 100,
             duration: 1,
             ease: 'expo.inOut ',
@@ -33,26 +34,26 @@ function Navbar() {
         })
     });
 
-  return (
-    <nav>
-        <div>
-            <a href="/home">
-                <img src="/images/logo.png" alt="logo" />
-                <p>velvet pour</p>
-            </a>
+    return (
+        <nav>
+            <div>
+                <a href="/home">
+                    <img src="/images/logo.png" alt="logo" />
+                    <p>velvet pour</p>
+                </a>
 
-            <ul>
-                {navLinks.map((link) => (
-                    <li key={link.id}>
-                        <a href={`#${link.id}`}>
-                            {link.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    </nav>
-  )
+                <ul>
+                    {navLinks.map((link) => (
+                        <li key={link.id}>
+                            <a href={`#${link.id}`}>
+                                {link.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
+    )
 }
 
 export default Navbar

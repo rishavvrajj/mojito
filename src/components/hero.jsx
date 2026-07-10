@@ -113,7 +113,7 @@ function Hero() {
             </div>
         </section>
         <div className='video'>
-            <video ref={videoRef} src="/videos/output.mp4" muted playsInline preload='auto'></video>
+            <video ref={videoRef} src="/videos/input.mp4" muted playsInline preload='auto'></video>
         </div>
         </>
     )
