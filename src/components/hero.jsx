@@ -74,7 +74,9 @@ function Hero() {
                     trigger: 'body',         
                     start: 'top top',        
                     end: 'bottom bottom',    
-                    scrub: 1.5,          
+                    scrub: 1.5,
+                    ease: 'none',
+                    normalizeScroll: true,          
                     // markers: true,          
                     invalidateOnRefresh: true
                 }
