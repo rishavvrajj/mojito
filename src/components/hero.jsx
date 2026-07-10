@@ -66,30 +66,35 @@ function Hero() {
         leafTween.to('.right-leaf', { y: 200 }, 0)
         leafTween.to('.left-leaf', { y: -200 }, 0)
 
-        const startValue = isMobile ? 'top 50%' : '80% top';
-        const endValue = isMobile ? '120% top' : 'top top';
+       const initVideoScrub = () => {
+            if (!videoRef.current || isNaN(videoRef.current.duration)) return;
 
-        const videoTween = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.video',
-                start: 'top top',
-                end: 'top top',
-                // markers: true,
-                scrub: true,
-                // pin: true,
-                // onEnter: () => videoRef.current.play(),
-                // onEnterBack: () => videoRef.current.play(),
-                // onLeave: () => videoRef.current.pause(),
-                // onLeaveBack: () => videoRef.current.pause(),
-            }
-        }); 
+            const videoTween = gsap.timeline({
+                scrollTrigger: {
+                    trigger: 'body',         
+                    start: 'top top',        
+                    end: 'bottom bottom',    
+                    scrub: 1.5,          
+                    // markers: true,          
+                    invalidateOnRefresh: true
+                }
+            });
 
-        videoRef.current.onloadedmetadata = () => {
             videoTween.to(videoRef.current, {
-                currentTime: videoRef.current.duration
-            })
+                currentTime: videoRef.current.duration,
+                ease: 'none'               
+            });
+        };
+
+        // 5. Handle video metadata load safety net
+        if (videoRef.current) {
+            if (videoRef.current.readyState >= 1) {
+                initVideoScrub();
+            } else {
+                videoRef.current.onloadedmetadata = initVideoScrub;
+            }
         }
-    }, [])
+    }, [isMobile])
 
     return (
         <> <section id='hero' className='noisy'>
