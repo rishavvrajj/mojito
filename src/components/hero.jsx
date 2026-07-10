@@ -66,9 +66,6 @@ function Hero() {
         leafTween.to('.right-leaf', { y: 200 }, 0)
         leafTween.to('.left-leaf', { y: -200 }, 0)
 
-        const startValue = isMobile ? 'top 50%' : '80% top';
-        const endValue = isMobile ? '120% top' : 'top top';
-
        const initVideoScrub = () => {
             if (!videoRef.current || isNaN(videoRef.current.duration)) return;
 
@@ -78,7 +75,7 @@ function Hero() {
                     start: 'top top',        
                     end: 'bottom bottom',    
                     scrub: true,          
-                    markers: true,          
+                    markers: 1.5,          
                     invalidateOnRefresh: true
                 }
             });
