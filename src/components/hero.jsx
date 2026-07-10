@@ -69,27 +69,35 @@ function Hero() {
         const startValue = isMobile ? 'top 50%' : '80% top';
         const endValue = isMobile ? '120% top' : 'top top';
 
-        const videoTween = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.video',
-                start: 'top top',
-                end: 'top top',
-                // markers: true,
-                scrub: true,
-                // pin: true,
-                // onEnter: () => videoRef.current.play(),
-                // onEnterBack: () => videoRef.current.play(),
-                // onLeave: () => videoRef.current.pause(),
-                // onLeaveBack: () => videoRef.current.pause(),
-            }
-        }); 
+       const initVideoScrub = () => {
+            if (!videoRef.current || isNaN(videoRef.current.duration)) return;
 
-        videoRef.current.onloadedmetadata = () => {
+            const videoTween = gsap.timeline({
+                scrollTrigger: {
+                    trigger: 'body',         
+                    start: 'top top',        
+                    end: 'bottom bottom',    
+                    scrub: true,          
+                    markers: true,          
+                    invalidateOnRefresh: true
+                }
+            });
+
             videoTween.to(videoRef.current, {
-                currentTime: videoRef.current.duration
-            })
+                currentTime: videoRef.current.duration,
+                ease: 'none'               
+            });
+        };
+
+        // 5. Handle video metadata load safety net
+        if (videoRef.current) {
+            if (videoRef.current.readyState >= 1) {
+                initVideoScrub();
+            } else {
+                videoRef.current.onloadedmetadata = initVideoScrub;
+            }
         }
-    }, [])
+    }, [isMobile])
 
     return (
         <> <section id='hero' className='noisy'>
