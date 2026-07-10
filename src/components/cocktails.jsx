@@ -19,21 +19,17 @@ function Cocktails() {
 
     parallaxTimeline.fromTo('#c-left-leaf', {
       x: -200,
-      y: -600,
       opacity:0
     }, {
       x: 0,
-      y: 125,
       opacity:1
     }, 0)
 
     parallaxTimeline.fromTo('#c-right-leaf', {
       x: 200,
-      y: -800,
       opacity: 0
     }, {
       x: 0,
-      y: -250,
       opacity: 1
     }, 0)
   }, [])
