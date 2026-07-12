@@ -32,6 +32,32 @@ function Cocktails() {
       x: 0,
       opacity: 1
     }, 0)
+
+    const cockatilTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#cocktails',
+        start: 'top 80%',
+        end: '50% 80%',
+        scrub: 'true',
+        // markers: true
+      }
+    })
+
+    cockatilTimeline.fromTo('.popular', {
+      y: 200,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+    }, 0)
+
+    cockatilTimeline.fromTo('.loved', {
+      y: 200,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+    }, 0)
   }, [])
 
 

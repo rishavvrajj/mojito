@@ -66,37 +66,30 @@ function Hero() {
         leafTween.to('.right-leaf', { y: 200 }, 0)
         leafTween.to('.left-leaf', { y: -200 }, 0)
 
-       const initVideoScrub = () => {
-            if (!videoRef.current || isNaN(videoRef.current.duration)) return;
+        const startValue = isMobile ? 'top 50%' : 'center 50%';
+        const endValue = isMobile ? '120% top' : 'top top';
 
-            const videoTween = gsap.timeline({
-                scrollTrigger: {
-                    trigger: 'body',         
-                    start: 'top top',        
-                    end: 'bottom bottom',    
-                    scrub: 1.5,
-                    ease: 'none',
-                    normalizeScroll: true,          
-                    // markers: true,          
-                    invalidateOnRefresh: true
-                }
-            });
-
-            videoTween.to(videoRef.current, {
-                currentTime: videoRef.current.duration,
-                ease: 'none'               
-            });
-        };
-
-        // 5. Handle video metadata load safety net
-        if (videoRef.current) {
-            if (videoRef.current.readyState >= 1) {
-                initVideoScrub();
-            } else {
-                videoRef.current.onloadedmetadata = initVideoScrub;
+        const videoTween = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.video',
+                start: startValue,
+                end: endValue,
+                // markers: true,
+                scrub: true,
+                pin: true,
+                onEnter: () => videoRef.current.play(),
+                onEnterBack: () => videoRef.current.play(),
+                onLeave: () => videoRef.current.pause(),
+                onLeaveBack: () => videoRef.current.pause(),
             }
+        }); 
+
+        videoRef.current.onloadedmetadata = () => {
+            videoTween.to(videoRef.current, {
+                currentTime: videoRef.current.duration
+            })
         }
-    }, [isMobile])
+    }, [])
 
     return (
         <> <section id='hero' className='noisy'>

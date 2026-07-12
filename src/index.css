@@ -144,7 +144,7 @@ body {
         @apply relative min-h-dvh w-full overflow-hidden;
         
         .list {
-            @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-40 2xl:px-0 px-5;
+            @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-40 px-5;
 
             .popular {
                 @apply space-y-8 w-full md:w-fit;
@@ -165,7 +165,7 @@ body {
                     @apply flex justify-between items-start;
 
                     h3 {
-                        @apply font-modern-negra 2xl:text-3xl text-xl text-yellow;
+                        @apply font-modern-negra text-xl text-yellow;
                     }
 
                     p {
@@ -180,11 +180,11 @@ body {
         }
 
         #c-left-leaf {
-            @apply absolute left-0 bottom-0 ;
+            @apply absolute left-0 bottom-0 size-50 opacity-20 md:size-100 ;
         }
 
         #c-right-leaf {
-            @apply absolute right-0 bottom-0;
+            @apply absolute right-0 bottom-0 size-50 md:size-100;
         }
     }
 
