@@ -76,7 +76,7 @@ function Hero() {
                 end: endValue,
                 // markers: true,
                 scrub: true,
-                pin: true,
+                // pin: true,
                 onEnter: () => videoRef.current.play(),
                 onEnterBack: () => videoRef.current.play(),
                 onLeave: () => videoRef.current.pause(),
